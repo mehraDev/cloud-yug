@@ -1,0 +1,36 @@
+.md-header--shadow {
+    box-shadow: 0 0 0.2rem #0000001a, 0 0.2rem 0.4rem #0003;
+    transition: transform .25s cubic-bezier(.1,.7,.1,1),box-shadow .25s;
+}
+
+.md-header {
+    display: flex;
+    padding: 16px;
+    font-size: 14px;
+    line-height: 1.5;
+    color: rgba(255,255,255,0.7);
+    background-color: #24292f;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+.team-left-column {
+    max-width: 350px;
+}
+.color-bg-default {
+    background-color: #ffffff !important;
+}
+.border-right {
+    border-right: 1px solid #d0d7de !important;
+}
+@media (min-width: 768px){
+    .col-md-4 {
+        width: 28.33333332%;
+    }
+
+}
+.d-md-flex{
+    
+    display: flex !important;
+    min-height: 100vh;
+}
+

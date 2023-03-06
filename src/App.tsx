@@ -1,11 +1,10 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-
+import Dashhboard from './components/Dashboard';
 function App() {
   return (
     <div className="App">
-      Initial git upload
+      <Dashhboard/>
+      
     </div>
   );
 }
