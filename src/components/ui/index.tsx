@@ -10,9 +10,7 @@ const HeaderWrapper = styled.div`
 `
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 const Header = () => {
-  return <div>
-        <HeaderWrapper/>
-    </div>
+  return <HeaderWrapper/>
 }
 
 export default Header
