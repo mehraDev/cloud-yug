@@ -12,6 +12,7 @@ width: 256px;
 height:100vh;
 border-inline-end: 1px solid rgba(5, 5, 5, 0.06);
 font-size:14px;
+position: absolute;
 `
 
 const Menu = (props: any) => {
