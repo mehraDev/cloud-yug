@@ -6,6 +6,7 @@ const ItemViewerStyled = styled.div`
 display: flex;
 flex-wrap: wrap;
 padding: 1rem;
+
 `
 
 const ItemViewer = ({ items }: { items: any }) => {

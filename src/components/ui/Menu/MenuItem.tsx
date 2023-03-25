@@ -1,9 +1,9 @@
+/* eslint-disable @typescript-eslint/strict-boolean-expressions */
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
 
-import { useState } from 'react'
 import styled from 'styled-components'
 
-const MenuItemStyled = styled.div`
+const MenuItemStyled = styled.li`
     display: flex;
     align-items: center;
     margin: 0.25rem;
@@ -24,12 +24,7 @@ const MenuItemStyled = styled.div`
 `
 
 const MenuItem = (props: any) => {
-  const handleClick = () => {
-    console.log('calling handleclick')
-    toggleActive((toggleActive) => !toggleActive)
-  }
-  const [active, toggleActive] = useState(false)
-  return <MenuItemStyled onClick={handleClick} className={active ? 'active' : ''}>
+  return <MenuItemStyled className={props.active ? 'active' : ''} onClick={props.onClick}>
   <div>{props.icon}</div>
   <div>{props.label}</div>
   <div>{props.notification}</div>

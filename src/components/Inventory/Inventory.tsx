@@ -1,5 +1,4 @@
 /* eslint-disable react/jsx-key */
-import { Button } from 'antd'
 import { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { getItems, auth } from '../../firebase/firebase'
@@ -46,7 +45,34 @@ const ImageDB = () => {
     </CardBody>
   </Card>
 }
-
+const Button = styled.button`
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 10px;
+  cursor: pointer;
+  transition-duration: 0.4s;
+  border-radius: 5px;
+  
+  &:hover {
+    background-color: #3e8e41; /* Dark green */
+  }
+  
+  &:active {
+    background-color: #3e8e41;
+    transform: translateY(2px);
+  }
+  
+  @media (max-width: 768px) {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+`;
 // @@ padding sepration for mobile/desktop
 const Card = styled.div`
 height: 100%;

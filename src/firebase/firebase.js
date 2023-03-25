@@ -1,12 +1,7 @@
-// Import the functions you need from the SDKs you need
 import { initializeApp } from 'firebase/app'
+import { getFirestore, collection, addDoc, doc, getDocs } from 'firebase/firestore'
 import { getAuth } from 'firebase/auth'
-import firebaseui from 'firebaseui'
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: 'AIzaSyAzXT4FHB1kWd_jGkkLL1zdw-II7ryke3Y',
   authDomain: 'cloudyug-f2fe4.firebaseapp.com',
@@ -19,6 +14,56 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig)
-const auth = getAuth(app)
-export const ui = new firebaseui.auth.AuthUI(auth)
+export const db = getFirestore(app)
+
+// Adding Shop
+export async function addShop (initalData) {
+  console.log('Calling addShop')
+  try {
+    const newShopRef = await addDoc(collection(db, 'business'), initalData)
+    console.log('Success Add_Shop: ' + newShopRef)
+  } catch (e) {
+    console.error('Error adding document: ', e)
+  }
+}
+
+export async function addItems (shopId, items) {
+  console.log('Adding Items ', items)
+  for (let i = 0; i < items.length; i++) {
+    console.log('Success AddItem: ' + items[i])
+    try {
+      const newShopRef = await addDoc(collection(db, `users/${shopId}/items`), items[i])
+      console.log('Success AddItem: ' + newShopRef)
+    } catch (e) {
+      console.error('Error adding document: ', e)
+    }
+  }
+}
+
+export async function addItem (shopId, item) {
+  console.log('Adding Item')
+  try {
+    const newShopRef = await addDoc(collection(db, `users/${shopId}/items`), item)
+    console.log('Success AddItem: ' + newShopRef)
+  } catch (e) {
+    console.error('Error adding document: ', e)
+  }
+}
+
+export async function getItems (shopId) {
+  console.log('Gettinf Items')
+  const items = []
+  try {
+    const querySnapshot = await getDocs(collection(db, `users/${shopId}/items`))
+    querySnapshot.forEach((doc) => {
+      items.push({ ...doc.data(), id: doc.id })
+    })
+    return items
+  } catch (e) {
+    console.error('Error getting items: ', e)
+  }
+}
+
+export const auth = getAuth(app)
+
 export default app

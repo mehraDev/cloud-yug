@@ -7,6 +7,7 @@ import Layout from './ui/Layout'
 import Menu from './ui/Menu/Menu'
 import Main from './ui/Layout/Main'
 import Footer from './ui/Layout/Footer'
+import { useState } from 'react'
 // import {ConfigProvider} from 'antd'
 
 // const SideNavBarStyled = styled.ul`
@@ -17,11 +18,12 @@ import Footer from './ui/Layout/Footer'
 // `
 
 export const Dashhboard = () => {
+  const [activeMenu, setActiveMenu] = useState(2)
   return <div>
     <Layout>
         <Header/>
-        <Menu/>
-        <Main/>
+        <Menu change={setActiveMenu} active={activeMenu}/>
+        <Main switch={activeMenu}/>
         <Footer/>
     </Layout>
   </div>
